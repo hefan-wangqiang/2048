@@ -39,8 +39,8 @@ void showGame(int data[N][N])
 		}
 		printf("\n");
 	}
-	printf("当前最高记录：%d\n", maxScore(data));
-	fflush(stdin);//清空缓冲区，避免“回车”字符被读取
+	printf("当前最高分数：%d\n", maxScore(data));
+	//fflush(stdin);//清空缓冲区，避免“回车”字符被读取
 }
 
 /*
@@ -96,7 +96,7 @@ int checkGameOver(int data[N][N])
 	//判断各行是否可加
 	for (x = 0; x < N; ++x)
 	{
-		for (y = 0; y < N - 1; ++y)
+		for (y = 0; y < N; ++y)
 		{
 			if (data[x][y] == data[x][y + 1])
 			{
@@ -169,7 +169,7 @@ void moveUp(int data[N][N])
 	//先累加
 	for (y = 0; y < N; ++y)
 	{
-		for (x = 0; x < N; ++x)
+		for (x = 0; x < N - 1; ++x)
 		{
 			if (data[x][y] == 0)
 			{
@@ -241,7 +241,7 @@ void moveDown(int data[N][N])
 	//先累加
 	for (y = 0; y < N; ++y)
 	{
-		for (x = N- 1; x > 0; --x)
+		for (x = N - 1; x > 0; --x)
 		{
 			if (data[x][y] == 0)
 			{
@@ -313,7 +313,7 @@ void moveLeft(int data[N][N])
 	//先累加
 	for (x = 0; x < N; ++x)
 	{
-		for (y = 0; y < N; ++y)
+		for (y = 0; y < N - 1; ++y)
 		{
 			if (data[x][y] == 0)
 			{
@@ -382,7 +382,7 @@ void moveRight(int data[N][N])
 	int x = 0, y = 0;
 	int idx;
 	int isChange = 0;  //可移动标记位
-	//先累加
+	
 	for (x = 0; x < N; ++x)
 	{
 		for (y = N - 1; y > 0; --y)
@@ -475,7 +475,7 @@ int getInput(void)
 */
 int checkGameWin(int maxScore)
 {
-	if (maxScore >= 2048)
+	if (maxScore >= 32)
 	{
 		return 1;
 	}

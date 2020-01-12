@@ -30,7 +30,6 @@ int main()
 			{
 				printf("You Win!(按'q'退出游戏)\n");
 				key = getInput();
-				//fflush(stdin);
 				switch (key)
 				{
 				case EXIT: exitGame(); break;
@@ -45,7 +44,6 @@ int main()
 			{
 				printf("Game Over!(按'q'退出游戏)\n");
 				key = getInput();
-				//fflush(stdin);
 				switch (key)
 				{
 				case EXIT: exitGame(); break;

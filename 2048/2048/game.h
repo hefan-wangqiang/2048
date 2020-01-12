@@ -7,7 +7,7 @@
 #include <time.h>
 #include <conio.h>
 
-#define N 2 //游戏的维数
+#define N 4 //游戏的维数
 
 enum KEY
 {
