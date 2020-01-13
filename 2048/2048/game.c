@@ -25,22 +25,45 @@ void initGame(int data[N][N])
 */
 void showGame(int data[N][N])
 {
-	int x = 0, y = 0;
+	int x = 0, y = 0, i = 0;
 	system("cls"); //打印前先清屏
-	printf("欢迎来到2048游戏！");
-	printf("(按'q'退出游戏)\n");
-
+	printf("         欢迎来到2048游戏！\n");
 	//打印所有数据
 	for (x = 0; x < N; ++x)
 	{
+		printf("    ");
+		printf("|");
 		for (y = 0; y < N; ++y)
 		{
-			printf("%5d", data[x][y]);
+			printf("-----|");
 		}
 		printf("\n");
+		printf("    ");
+		for (y = 0; y < N; ++y)
+		{
+			if (data[x][y] == 0)
+			{
+				printf("|     ");
+			}
+			else
+			{
+				printf("|%5d", data[x][y]);
+			}
+		}
+		printf("|\n");
 	}
-	printf("当前最高分数：%d\n", maxScore(data));
-	//fflush(stdin);//清空缓冲区，避免“回车”字符被读取
+	printf("    ");
+	printf("|");
+	for (y = 0; y < N; ++y)
+	{
+		printf("-----|");
+	}
+	printf("\n当前最高分数：%d\n", maxScore(data));
+	printf("=============操作说明===============\n");
+	printf("          u-->上    d-->下\n");
+	printf("          l-->左    r-->右\n");
+	printf("              q-->退出\n");
+	fflush(stdin);//清空缓冲区，避免“回车”字符被读取
 }
 
 /*
@@ -475,7 +498,7 @@ int getInput(void)
 */
 int checkGameWin(int maxScore)
 {
-	if (maxScore >= 32)
+	if (maxScore >= 2048)
 	{
 		return 1;
 	}
